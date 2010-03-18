@@ -4,7 +4,6 @@
 div.label-wrapper {
     position: absolute; }
 
-
     div.label-wrapper div.label {
         background: #fff;
         border: 1px solid #000;
@@ -25,7 +24,6 @@ div.label-wrapper {
         div.label-wrapper.right div.label { margin-left:   8px; }
         div.label-wrapper.below div.label { margin-top:    8px; }
         div.label-wrapper.left  div.label { margin-right:  8px; }
-
 
     div.label-wrapper div.arrow {
         position: absolute;
