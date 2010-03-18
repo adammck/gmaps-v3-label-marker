@@ -11,7 +11,7 @@ adammck.maps = adammck.maps || {};
 
         this.paneName  = "overlayImage";
         this.className = "label";
-        this.html      = null;
+        this.content   = null;
         this.minZoom   = 0;
         this.maxZoom   = 99;
         this.direction = namespace.Label.Direction.ABOVE;
@@ -68,7 +68,10 @@ adammck.maps = adammck.maps || {};
 
         this.content_ = document.createElement("div");
         this.content_.className = "label " + this.className;
-        this.content_.innerHTML = this.html;
+
+        if(this.content.nodeName) this.content_.appendChild(this.content);
+        else this.content_.innerHTML = this.content;
+
         this.wrapper_.appendChild(this.content_);
 
         var pane = this.getPanes()[this.paneName];
