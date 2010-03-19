@@ -23,28 +23,28 @@
         </script>
 
         <div id="people" style="display: none;">
-            <div id="adammck" class="person" lat="40.716667" lng="-74" direction="above">
+            <div lat="40.716667" lng="-74">
                 <a href="http://github.com/adammck">
                     <img src="http://gravatar.com/avatar/394b7d5acc09cac2894e077aac7f4c0d">
-                    adammck
+                    <div>adammck</div>
                 </a>
             </div>
-            <div id="ewheeler" class="person" lat="55.676111" lng="12.568333" direction="above">
+            <div lat="55.676111" lng="12.568333">
                 <a href="http://github.com/ewheeler">
                     <img src="http://gravatar.com/avatar/55cee167cd226c5d0ff08352315f28c9">
-                    ewheeler
+                    <div>ewheeler</div>
                 </a>
             </div>
-            <div id="merrick" class="person" lat="-15.416667" lng="28.283333" direction="above">
+            <div lat="-15.416667" lng="28.283333">
                 <a href="http://github.com/merrick">
                     <img src="http://gravatar.com/avatar/dee0c198837aa492e62c094141e11bf4">
-                    merrick
+                    <div>merrick</div>
                 </a>
             </div>
-            <div id="takinbo" class="person" lat="6.453056" lng="3.395833" direction="above">
+            <div lat="6.453056" lng="3.395833">
                 <a href="http://github.com/takinbo">
                     <img src="http://gravatar.com/avatar/3883a52f46106ef5ee9baa31fba44572">
-                    takinbo
+                    <div>takinbo</div>
                 </a>
             </div>
         </div>
@@ -71,19 +71,20 @@
                     document.getElementById("map"),
                     map_opts);
 
-                var people = document.getElementById("people").children;
+                var people = document.getElementById("people").childNodes;
                 for(n in people) {
                     var node = people[n];
-                    var pos = new google.maps.LatLng(
-                        node.getAttribute("lat"),
-                        node.getAttribute("lng"));
+                    if(node.tagName && node.tagName.toLowerCase() == "div") {
+                        var pos = new google.maps.LatLng(
+                            node.getAttribute("lat"),
+                            node.getAttribute("lng"));
 
-                    new adammck.maps.Label({
-                        "direction": node.getAttribute("direction"),
-                        "position": pos,
-                        "content": node,
-                        "map": map
-                    });
+                        new adammck.maps.Label({
+                            "position": pos,
+                            "content": node,
+                            "map": map
+                        });
+                    }
                 }
             })();
         </script>

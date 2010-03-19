@@ -42,20 +42,24 @@ header, footer, #map {
     }
 
 
-.person { }
+.label { }
 
-    .person a {
+    .label a {
         color: #fff;
         display: block;
         text-align: center;
         text-decoration: none;
-        padding-bottom: 0.5em;
         background: #000;
     }
 
-        .person a img {
+        .label a img {
             display: block;
-            margin-bottom: 0.5em;
+            border: 0;
+        }
+
+        .label a div {
+            display: block;
+            padding: 0.5em;
         }
 
 
