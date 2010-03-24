@@ -26,33 +26,34 @@ adammck.maps = adammck.maps || {};
         };
 
         this.get_left = function(position) {
-            if ((this.direction == namespace.Label.Direction.ABOVE) || (this.direction == namespace.Label.Direction.BELOW))
-                return (position.x - parseInt(this.wrapper_.offsetWidth / 2));
-
-            else if (this.direction == namespace.Label.Direction.LEFT)
+            if (this.direction == namespace.Label.Direction.LEFT)
                 return position.x - parseInt(this.wrapper_.offsetWidth);
 
             else if (this.direction == namespace.Label.Direction.RIGHT)
                 return position.x;
+
+            /* center align (horitzontal) for above/below/center */
+            return (position.x - parseInt(this.wrapper_.offsetWidth / 2));
         };
 
         this.get_top = function(position) {
-            if ((this.direction == namespace.Label.Direction.LEFT) || (this.direction == namespace.Label.Direction.RIGHT))
-                return (position.y - parseInt(this.wrapper_.offsetHeight / 2));
-
-            else if (this.direction == namespace.Label.Direction.ABOVE)
+            if (this.direction == namespace.Label.Direction.ABOVE)
                 return position.y - parseInt(this.wrapper_.offsetHeight);
 
             else if (this.direction == namespace.Label.Direction.BELOW)
                 return position.y;
+
+            /* center align (vertical) for left/right/center */
+            return (position.y - parseInt(this.wrapper_.offsetHeight / 2));
         };
     };
 
     namespace.Label.Direction = {
-        "ABOVE": "above",
-        "RIGHT": "right",
-        "BELOW": "below",
-        "LEFT":  "left"
+        "CENTER": "center",
+        "ABOVE":  "above",
+        "RIGHT":  "right",
+        "BELOW":  "below",
+        "LEFT":   "left"
     };
 
     namespace.Label.prototype =
